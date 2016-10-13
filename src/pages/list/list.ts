@@ -30,26 +30,20 @@ export class ListPage {
       'Authorization': 'token'
     });
 
-    let imagesObservable = this.http.get('https://pictu-r.herokuapp.com/api/v1/users/foo/pictures', options)
+    this.http.get('https://pictu-r.herokuapp.com/api/v1/users/foo/pictures', options)
       .map(data => data.json())
-      .map(imageDataList => {
-        console.log(imageDataList);
-        imageDataList.map(imageData => new Image(imageData));
-      })
-        .subscribe(_imageList => {
+      .map(imageDataList => imageDataList.pictures.map(imageData => new Image(imageData)))
+      .subscribe(_imageList =>
+        {
           console.log('_imageList',_imageList);
-          let imageList;
-          imageList = _imageList;
-
-          //this.items = [];
-          for(let i = 0; i < imageList.length; i++) {
+          this.items = [];
+          for(let i = 0; i < _imageList.length; i++) {
             this.items.push({
               title: 'Item ' + i,
               note: 'This is item #' + i,
               icon: this.icons[Math.floor(Math.random() * this.icons.length)]
             });
           }
-
         });
 
   }
