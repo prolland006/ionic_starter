@@ -4,7 +4,6 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { ItemDetailsPage } from '../item-details/item-details';
 import {Http, Headers, RequestOptions} from "@angular/http";
-import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { Image } from './image';
 
@@ -23,12 +22,12 @@ export class ListPage {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
-    let options = new RequestOptions({ headers: headers });
-
     let headers = new Headers({
       'Content-Type': 'application/json',
       'Authorization': 'token'
     });
+    let options = new RequestOptions({ headers: headers });
+
 
     this.http.get('https://pictu-r.herokuapp.com/api/v1/users/foo/pictures', options)
       .map(data => data.json())
