@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
+import { SummaryPage } from '../pages/summary/summary';
+import { GeolocPage } from '../pages/geoloc/geoloc';
 
 @NgModule({
   declarations: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage
+    SummaryPage,
+    GeolocPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -18,9 +16,8 @@ import { ListPage } from '../pages/list/list';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage
+    SummaryPage,
+    GeolocPage
   ],
   providers: []
 })
